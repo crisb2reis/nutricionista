@@ -1,16 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-lexend);
-  --color-primary: #FF6600;
-  --color-background-dark: #1e230f;
-  --color-background-light: #f8f8f5;
+  --font-sans: var(--font-inter);
+  --color-primary: #FF6600; /* Adaptado para Personal Trainer, usando a base do template */
+  --color-background-light: #f6f7f7;
+  --color-background-dark: #151d18;
 }
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 30, 35, 15;
-  --background-end-rgb: 30, 35, 15;
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 246, 247, 247;
+  --background-end-rgb: 246, 247, 247;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 241, 245, 249;
+    --background-start-rgb: 21, 29, 24;
+    --background-end-rgb: 21, 29, 24;
+  }
 }
 
 .material-symbols-outlined {
@@ -21,7 +29,7 @@
     'opsz' 24;
 }
 
-.fill-1 {
+.fill-primary {
   font-variation-settings: 'FILL' 1;
 }
 

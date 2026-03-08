@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ProTrainer | Transforme seu Corpo",
-  description: "Alcance sua melhor versão com acompanhamento profissional.",
+  title: "NutriSaúde - Transforme sua Vida",
+  description: "Atendimento nutricional personalizado focado em resultados reais.",
 };
 
 export default function RootLayout({

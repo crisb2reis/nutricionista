@@ -1,14 +1,11 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <>
-      {/* Sticky Header */}
-      <header className="sticky top-0 z-50 w-full bg-[#f6f7f7]/80 dark:bg-[#151d18]/80 backdrop-blur-md border-b border-primary/10">
+      <header className="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-3xl">fitness_center</span>
-            <span className="text-xl font-bold tracking-tight text-primary">ProTrainer</span>
+            <span className="material-symbols-outlined text-primary text-3xl">nutrition</span>
+            <span className="text-xl font-bold tracking-tight text-primary">NutriSaúde</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <a className="text-sm font-medium hover:text-primary transition-colors" href="#sobre">Sobre</a>
@@ -17,9 +14,9 @@ export default function Home() {
             <a className="text-sm font-medium hover:text-primary transition-colors" href="#depoimentos">Depoimentos</a>
           </nav>
           <div className="flex items-center gap-4">
-            <a href="#contato" className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-sm">
-              Agendar Avaliação
-            </a>
+            <button className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-sm">
+              Agendar Consulta
+            </button>
           </div>
         </div>
       </header>
@@ -30,31 +27,32 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
             <div className="flex flex-col gap-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider w-fit">
-                <span className="material-symbols-outlined text-sm">verified</span>
-                Personal Trainer Certificado CREF 12345-G
+                <span className="material-symbols-outlined text-sm">verified_user</span>
+                Nutricionista Registrada CRN-3 12345
               </div>
               <h1 className="text-5xl lg:text-7xl font-black leading-tight tracking-tight">
-                Transforme seu <span className="text-primary">corpo</span> através do treinamento
+                Transforme sua <span className="text-primary">saúde</span> através da alimentação
               </h1>
               <p className="text-lg text-slate-600 dark:text-slate-400 max-w-xl">
-                Treinamento personalizado focado em resultados reais para emagrecimento, hipertrofia e definição. Treine com inteligência e alcance seu objetivo.
+                Atendimento nutricional personalizado focado em resultados reais para emagrecimento, hipertrofia e qualidade de vida. Coma o que gosta e alcance seu objetivo.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#contato" className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 transition-all">
-                  Agendar Avaliação
-                </a>
-                <a href="#contato" className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all">
+                <button className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 transition-all">
+                  Agendar Consulta
+                </button>
+                <button className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all">
                   <span className="material-symbols-outlined text-green-500">chat</span>
                   Falar no WhatsApp
-                </a>
+                </button>
               </div>
               <div className="flex items-center gap-6 pt-4 border-t border-slate-100 dark:border-slate-800">
                 <div className="flex -space-x-3">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="size-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                      <Image src={`https://i.pravatar.cc/150?u=${i}`} alt="Patient profile photo" width={40} height={40} className="w-full h-full object-cover" />
-                    </div>
-                  ))}
+                  <div className="size-10 rounded-full border-2 border-white bg-slate-200"
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJ8BorS9c1T2DLABpK9RDxiQHZzJ_EA1Yrch05NaNBSticMNfOHtiKAK398m8cm58kALb6WJN7sIcYEDHZKioPA6Gofe71SVCaG70L5WqWsmEnPxKQlwcWhY0jddZt4WcYLPPkeVezwBNobYmSqq432lUxKgrAH4ANhsr-5ftZWEiZSzlqb3kN9GKsgHSSLLVYOCP3O36iB1b5tVIiCAFQU-PsnJ_pmR2nqpsbauWhQMwB0R4li1pFKRG096yZxEyk9_mYZbw-_DY')" }}></div>
+                  <div className="size-10 rounded-full border-2 border-white bg-slate-200"
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCT-bgsHwDo5DtA93yAFsgTq03WopNI3BqC3PLC4nKCK6yTuNPENDHeFDFpuBe-62VKoKP1ooSU1z5uhPrJ3Md1zLseD3Y9CA0kCcOC1fSCCg8VSXIMfJUYKWwwvEyQ_nI95U8LMPoGboKxDRiHuqnM0IqLHOJsOZR0KUoh2AtzwQus6KnpZVngkYhcCwftfQBZHxsCTElDMF4MCslF387qkVxOO5nX-LaPUByl4NQhxHRxEPFbzoQfGwjUJtLihBKBTEDKVEGZsJg')" }}></div>
+                  <div className="size-10 rounded-full border-2 border-white bg-slate-200"
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDpNVolvxj2c69r-wRDiMpmywK08sjpj-CGJRoc3w-tgOrfB2AGoLQTypSM7twDm02QmYFBSL9Nw4qEADn81LMMdon58ap9KOVfPoLtoN_aJcXRMEv8pd1z8_z9YbDUd37d9UIbZDkO0wi2FYUInrSPWA9f4vZq19LLh9hq_zsgdWj3kkZ1vwjI4lH9bg3W1kCMU2hhDqrVy-qXAdxsf-NWE6BKGuYsMV_JUY-3T67kpkVdwhBtCyT5z2icbVQ0QSmjELkzlg1yieo')" }}></div>
                 </div>
                 <div>
                   <div className="flex gap-0.5 text-yellow-400">
@@ -70,9 +68,8 @@ export default function Home() {
             </div>
             <div className="relative group">
               <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-2xl group-hover:bg-primary/20 transition-all"></div>
-              <div className="relative bg-slate-200 rounded-3xl aspect-[4/5] overflow-hidden shadow-2xl relative">
-                <Image src="/images/hero.png" alt="Personal Trainer Coach" fill className="object-cover" priority />
-              </div>
+              <div className="relative bg-slate-200 rounded-3xl aspect-[4/5] overflow-hidden shadow-2xl bg-center bg-cover"
+                style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBV14w5ckRhpyH7iwnN2M8OWqYB6x5HkppT1cH9ogR5ERnEzMNNgbxKn7mGreh-YDNzqrUBWKjU0wNR8idw-gQeBGGU3ZOVTXoxUWTJiOPMCBMAsJCuShlC3DqnBuI_mucd4DkMskr-pPAucEjCYFXdZ0Zp9IROpKTMIUtkJVxt1Er8GwWqy0ymYMllIuo721CFivcHlQ9_98Vl5RsqiDxKqy8zmiu3QCAZuh8vk-6_vtCrgW4D4Y5YkiXHtPaUq4sm2z3d-ZO1414')" }}></div>
             </div>
           </div>
         </section>
@@ -84,13 +81,13 @@ export default function Home() {
               <div className="order-2 lg:order-1 flex flex-col gap-6">
                 <h2 className="text-3xl font-bold">Autoridade e Dedicação</h2>
                 <p className="text-slate-600 dark:text-slate-400 text-lg">
-                  Sou apaixonado por fitness e acredito que o movimento é a base de uma vida plena. Com pós-graduação em Fisiologia do Exercício e Biomecânica, meu foco é traduzir a ciência do esporte em treinos práticos para a sua rotina.
+                  Sou apaixonada por nutrição e acredito que a alimentação é a base de uma vida plena. Com pós-graduação em Nutrição Clínica e Esportiva, meu foco é traduzir a ciência da nutrição em hábitos práticos para a sua rotina.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
                     <span className="material-symbols-outlined text-primary text-3xl mb-2">school</span>
-                    <h4 className="font-bold">Formação</h4>
-                    <p className="text-sm text-slate-500">Graduado em Ed. Física, Pos-graduado USP.</p>
+                    <h4 className="font-bold">Formação Acadêmica</h4>
+                    <p className="text-sm text-slate-500">Graduada pela USP, Pós-graduada em Clínica.</p>
                   </div>
                   <div className="p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
                     <span className="material-symbols-outlined text-primary text-3xl mb-2">monitoring</span>
@@ -100,9 +97,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="order-1 lg:order-2 bg-primary/5 p-2 rounded-3xl border border-primary/10">
-                <div className="bg-slate-200 rounded-2xl aspect-video relative overflow-hidden">
-                  <Image src="/images/training.png" alt="Acompanhamento na prática" fill className="object-cover" />
-                </div>
+                <div className="bg-slate-200 rounded-2xl aspect-video bg-center bg-cover"
+                  style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDG_gOXE2iB3gteU6DSnHTRBAs8QmpXq7Qj6hJ4gRayq4IwOCMvaKmCFJKgVGWotogQVfDS7z0kRYYude_JrB6Bi7jhLKgdAjGL47uGotIA_-gowW4WQo606R25XqoIyE3bzgT8dpNz4Q8PDpdwUVz0PPOlpZtXWnYeiPsga_kcgoBRuPcKBu8wchchXVpFDUH4_xZJ8dlRWxT0zhImuoEY6PLbhHcS0SkAFoFs_17BOeKUg_LPJwTFZRjqxvetwXkB-hNumBDdTm0')" }}></div>
               </div>
             </div>
           </div>
@@ -116,20 +112,34 @@ export default function Home() {
               <p className="text-slate-500">Estratégias específicas para diferentes objetivos e necessidades.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { icon: "scale", title: "Emagrecimento", desc: "Perca gordura de forma sustentável, com treinos eficientes." },
-                { icon: "fitness_center", title: "Hipertrofia", desc: "Ganhe massa muscular com um treino otimizado para sua genética." },
-                { icon: "accessibility_new", title: "Força Postural", desc: "Aprenda a recrutar os músculos certos e melhore sua postura." },
-                { icon: "bolt", title: "Qualidade de Vida", desc: "Aumente sua energia, melhore o sono e a disposição diária." }
-              ].map((item, i) => (
-                <div key={i} className="group p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 hover:border-primary/50 transition-all text-center">
-                  <div className="size-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
-                    <span className="material-symbols-outlined text-4xl">{item.icon}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-slate-500 text-sm">{item.desc}</p>
+              <div className="group p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 hover:border-primary/50 transition-all text-center">
+                <div className="size-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-4xl">scale</span>
                 </div>
-              ))}
+                <h3 className="text-xl font-bold mb-3">Emagrecimento</h3>
+                <p className="text-slate-500 text-sm">Perca gordura de forma sustentável, sem dietas restritivas malucas.</p>
+              </div>
+              <div className="group p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 hover:border-primary/50 transition-all text-center">
+                <div className="size-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-4xl">fitness_center</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3">Hipertrofia</h3>
+                <p className="text-slate-500 text-sm">Ganhe massa muscular com uma dieta otimizada para o seu treino.</p>
+              </div>
+              <div className="group p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 hover:border-primary/50 transition-all text-center">
+                <div className="size-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-4xl">restaurant</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3">Reeducação</h3>
+                <p className="text-slate-500 text-sm">Aprenda a comer com equilíbrio e melhore sua relação com a comida.</p>
+              </div>
+              <div className="group p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 hover:border-primary/50 transition-all text-center">
+                <div className="size-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-4xl">bolt</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3">Qualidade de Vida</h3>
+                <p className="text-slate-500 text-sm">Aumente sua energia, melhore o sono e a disposição diária.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -139,24 +149,38 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-black mb-4">Sua jornada para o sucesso</h2>
-              <p className="text-slate-400 text-lg">Um processo estruturado para garantir sua evolução.</p>
+              <p className="text-slate-400">Um processo estruturado para garantir sua evolução.</p>
             </div>
             <div className="relative grid md:grid-cols-4 gap-8">
               <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-primary/30"></div>
-              {[
-                { step: 1, title: "Agendamento", desc: "Escolha o melhor horário via WhatsApp ou formulário." },
-                { step: 2, title: "Avaliação", desc: "Análise completa de biomecânica, medidas e histórico." },
-                { step: 3, title: "Plano", desc: "Entrega da planilha de treinos 100% individualizada." },
-                { step: 4, title: "Resultados", desc: "Acompanhamento e ajustes constantes." }
-              ].map((item) => (
-                <div key={item.step} className="relative z-10 flex flex-col items-center text-center group">
-                  <div className="size-24 rounded-full bg-primary flex items-center justify-center text-white text-3xl font-black mb-6 border-8 border-background-dark shadow-xl group-hover:scale-110 transition-transform">
-                    {item.step}
-                  </div>
-                  <h4 className="text-xl font-bold mb-2">{item.title}</h4>
-                  <p className="text-sm text-slate-400">{item.desc}</p>
+              <div className="relative z-10 flex flex-col items-center text-center group">
+                <div className="size-24 rounded-full bg-primary flex items-center justify-center text-3xl font-black mb-6 border-8 border-background-dark shadow-xl group-hover:scale-110 transition-transform">
+                  1
                 </div>
-              ))}
+                <h4 className="text-xl font-bold mb-2">Agendamento</h4>
+                <p className="text-sm text-slate-400">Escolha o melhor horário via WhatsApp ou site.</p>
+              </div>
+              <div className="relative z-10 flex flex-col items-center text-center group">
+                <div className="size-24 rounded-full bg-primary flex items-center justify-center text-3xl font-black mb-6 border-8 border-background-dark shadow-xl group-hover:scale-110 transition-transform">
+                  2
+                </div>
+                <h4 className="text-xl font-bold mb-2">Avaliação</h4>
+                <p className="text-sm text-slate-400">Análise completa de exames, bioimpedância e rotina.</p>
+              </div>
+              <div className="relative z-10 flex flex-col items-center text-center group">
+                <div className="size-24 rounded-full bg-primary flex items-center justify-center text-3xl font-black mb-6 border-8 border-background-dark shadow-xl group-hover:scale-110 transition-transform">
+                  3
+                </div>
+                <h4 className="text-xl font-bold mb-2">Plano</h4>
+                <p className="text-sm text-slate-400">Entrega do plano alimentar 100% individualizado.</p>
+              </div>
+              <div className="relative z-10 flex flex-col items-center text-center group">
+                <div className="size-24 rounded-full bg-primary flex items-center justify-center text-3xl font-black mb-6 border-8 border-background-dark shadow-xl group-hover:scale-110 transition-transform">
+                  4
+                </div>
+                <h4 className="text-xl font-bold mb-2">Resultados</h4>
+                <p className="text-sm text-slate-400">Acompanhamento mensal para ajustes e metas.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -164,27 +188,38 @@ export default function Home() {
         {/* Section 5: Benefits */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-            <div className="bg-slate-200 rounded-3xl aspect-square lg:aspect-auto lg:h-full min-h-[400px] relative overflow-hidden">
-              <Image src="/images/training.png" alt="Treinamento com acompanhamento" fill className="object-cover" />
-            </div>
+            <div className="bg-slate-200 rounded-3xl aspect-square lg:aspect-auto lg:h-full min-h-[400px] bg-center bg-cover"
+              style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3o5s4VubPSHlNOAIh8Aov29ppxV2SP02WZgEdoSRlH5opn3SV8nYGmXmdPs19tDzT1GKpr_yE9rCVsjpLiNVdOKUUHqnV3WR5IqDlF72pdNxicMmjyHmU3F3m4C9GwXz2t7Z_EioTGpCKZ6Y7Q-JKpqlpHSSiHjouUOclu371PGAWGmUlYSvKKAm_KcRbGwjybD5C-D1yUVeYpMIOrk90PPoJ-vNEI86yZkN6Ybk55bDoyEyZaFu-m4KyP9lCWbnql1-h8lw1Mnw')" }}></div>
             <div className="flex flex-col gap-10">
-              <h2 className="text-4xl font-black leading-tight">Por que investir no <span className="text-primary">acompanhamento de um Personal?</span></h2>
+              <h2 className="text-4xl font-black leading-tight">Por que investir no <span className="text-primary">acompanhamento nutricional?</span></h2>
               <div className="grid gap-6">
-                {[
-                  { icon: "done_all", title: "Técnica Perfeita", desc: "Aprenda a recrutar os músculos certos e reduza vertiginosamente o risco de lesões." },
-                  { icon: "schedule", title: "Resultados Acelerados", desc: "Pule a fase de tentativa e erro. Chegue no seu objetivo muito mais rápido com a prescrição ideal." },
-                  { icon: "sports_score", title: "Foco e Motivação Diária", desc: "Pare de se sabotar, treinar não precisa ser chato se você estiver acompanhado das instruções certas." }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4">
-                    <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-primary">{item.icon}</span>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold">{item.title}</h4>
-                      <p className="text-slate-500">{item.desc}</p>
-                    </div>
+                <div className="flex gap-4">
+                  <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-primary">check_circle</span>
                   </div>
-                ))}
+                  <div>
+                    <h4 className="text-lg font-bold">Autonomia Alimentar</h4>
+                    <p className="text-slate-500">Aprenda a fazer escolhas saudáveis sem depender de cardápios fixos para sempre.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold">Saúde Intestinal e Imunidade</h4>
+                    <p className="text-slate-500">Nutrição focada no bom funcionamento do seu corpo como um todo.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold">Economia de Tempo e Dinheiro</h4>
+                    <p className="text-slate-500">Pare de gastar com suplementos inúteis e alimentos que não trazem resultado.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -195,24 +230,39 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-4xl font-black text-center mb-16">Histórias que inspiram</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { name: "Mariana S.", result: "-12kg em 6 meses", quote: "\"O acompanhamento me ajudou a sair do sedentarismo. Treinar não é mais uma obrigação, sinto falta quando não faço!\"" },
-                { name: "Ricardo M.", result: "Ganho de Massa", quote: "\"Meu desempenho no treino mudou completamente. Hoje tenho energia o dia todo e os resultados no espelho são nítidos.\"" },
-                { name: "Carla J.", result: "Qualidade de vida", quote: "\"Aumentei minha força e flexibilidade. Acordava todos os dias com dores nas costas e hoje me sinto 10 anos mais nova.\"" },
-              ].map((item, i) => (
-                <div key={i} className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="size-14 rounded-full bg-slate-200 overflow-hidden relative">
-                      <Image src={`https://i.pravatar.cc/150?u=${10 + i}`} alt={item.name} fill className="object-cover" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold">{item.name}</h4>
-                      <p className="text-xs text-primary font-bold uppercase">{item.result}</p>
-                    </div>
+              <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="size-14 rounded-full bg-slate-200 bg-center bg-cover"
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMqWzH6wu3x6VN-PAKlyVd4k0kR19ta3zQFTsjz_lCo5Sopwatmhot8IcwSJ_vwRqD8QyJQb2P8VPk5qjnFtOL-dT_ZQVPw3cYL1Fk3NFSLlcv__QJpepq1yUUvN7nf_7RsmMh0LR7Q28qaUuqI6UFpkpENDj4c7idHaOWf_kpHx73bwhAUjcNl7TGwwKPUQNLsM4mzkbmgY3kvHZvnDBc8naYrNQWKg23MF6d2dv8R0WlUsSDcKJpwGTMZ_6dyRqRYbwz3kqnbw4')" }}></div>
+                  <div>
+                    <h4 className="font-bold">Mariana S.</h4>
+                    <p className="text-xs text-primary font-bold uppercase">-12kg em 6 meses</p>
                   </div>
-                  <p className="italic text-slate-600 dark:text-slate-400">{item.quote}</p>
                 </div>
-              ))}
+                <p className="italic text-slate-600 dark:text-slate-400">&quot;Nunca achei que conseguiria emagrecer comendo meu chocolate no final de semana. A Nutri me ensinou o que é equilíbrio de verdade!&quot;</p>
+              </div>
+              <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="size-14 rounded-full bg-slate-200 bg-center bg-cover"
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7UQwIL2hvSBmcunhIsXxjxFSN8aHPulKVtJl2lqcmKT2w5pN5wea11JH5mTrY7wddoOSrFIxcXMZ4qTbS9zcvyLxtFydmD0yhQEeuwqmBxN50Ctccgti4PQQqwVeGifw469IHbHvGhIyEGfQGml1X-k_lQdRfq9lP7i84CEPuxI13OmM1cT_n6RQUzRnhzFxZDJD5bn8uSC9IF8rrm3wvBvhQFc58dHoFyfF06TxZTtq5CBNvjYeVsYxokgNocWpKtAZrt-KAQyc')" }}></div>
+                  <div>
+                    <h4 className="font-bold">Ricardo M.</h4>
+                    <p className="text-xs text-primary font-bold uppercase">Ganho de Massa</p>
+                  </div>
+                </div>
+                <p className="italic text-slate-600 dark:text-slate-400">&quot;Meu desempenho no treino mudou completamente. Hoje tenho energia o dia todo e os resultados no espelho são nítidos.&quot;</p>
+              </div>
+              <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="size-14 rounded-full bg-slate-200 bg-center bg-cover"
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCdED6rXo6owH1T2LnG-Drg1F485S17fUL4MU3A0HZF1o_dVwp3_HKzAERgRrqiZT0kGmbgWBhjRBXNJp_23YTsrplUCJa4hVzJr835C_T2NPbD1UQga8_yz7GD7ZdR75fd02Aa-g2z3gI4g8UACCN9gH4srK9kO00i4NU9DfRxLA9vx07_wEmJeZN0HNac7xDHlP7KwyNNR5YAD_DO8Tw6Qx5kQmeQw3i3IFPApwqMrV_esy4touO838ROwUJYAADf8G8dfXDgPd0')" }}></div>
+                  <div>
+                    <h4 className="font-bold">Carla J.</h4>
+                    <p className="text-xs text-primary font-bold uppercase">Saúde & Bem-estar</p>
+                  </div>
+                </div>
+                <p className="italic text-slate-600 dark:text-slate-400">&quot;Venci a compulsão alimentar e hoje me sinto em paz com a comida. Foi a melhor decisão que tomei pela minha saúde.&quot;</p>
+              </div>
             </div>
           </div>
         </section>
@@ -229,39 +279,39 @@ export default function Home() {
                 <div className="absolute top-0 right-0 p-4">
                   <span className="material-symbols-outlined text-primary/20 text-6xl">home_health</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Consultoria Online</h3>
-                <p className="text-slate-500 mb-8">Ideal para quem já sabe treinar e quer um planejamento profissional focado.</p>
-                <ul className="space-y-3 mb-8 text-sm flex-1">
-                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Planilha via Aplicativo</li>
-                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Vídeos de Execução</li>
-                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Suporte WhatsApp</li>
+                <h3 className="text-2xl font-bold mb-4">Consulta Única</h3>
+                <p className="text-slate-500 mb-8">Ideal para quem quer um norte inicial e ajuste de rotina pontual.</p>
+                <ul className="space-y-3 mb-8 text-sm">
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Bioimpedância inclusa</li>
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Plano Alimentar</li>
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Guia de Suplementação</li>
                 </ul>
                 <button className="w-full py-3 bg-slate-100 dark:bg-slate-700 hover:bg-primary hover:text-white rounded-xl font-bold transition-all mt-8">Quero saber mais</button>
               </div>
-
-              <div className="relative bg-white dark:bg-slate-800 rounded-3xl p-8 border-2 border-primary shadow-2xl overflow-hidden scale-105 z-10 flex flex-col">
+              <div className="relative bg-white dark:bg-slate-800 rounded-3xl p-8 border-2 border-primary shadow-2xl overflow-hidden scale-105 z-10">
                 <div className="absolute top-4 right-4 px-3 py-1 bg-primary text-white text-[10px] font-bold uppercase tracking-widest rounded-full">
                   Mais Procurado
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Personal Ao Vivo</h3>
-                <p className="text-slate-500 mb-8">Treino por vídeo-chamada com correção síncrona. Excelente para resultados e hipertrofia em casa.</p>
-                <ul className="space-y-3 mb-8 text-sm flex-1">
-                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Correção técnica instantânea</li>
-                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Motivação real</li>
-                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Horários fixos programados</li>
+                <h3 className="text-2xl font-bold mb-4">Acompanhamento</h3>
+                <p className="text-slate-500 mb-8">Tratamento de 3 a 6 meses com foco total em mudança de estilo de vida.</p>
+                <ul className="space-y-3 mb-8 text-sm">
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Consultas Mensais</li>
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Suporte Diário via WhatsApp</li>
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Ebooks e Receitas</li>
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Ajustes Ilimitados</li>
                 </ul>
                 <button className="w-full py-4 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">Começar Agora</button>
               </div>
-
               <div className="relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700 shadow-xl overflow-hidden flex flex-col">
                 <div className="absolute top-0 right-0 p-4">
                   <span className="material-symbols-outlined text-primary/20 text-6xl">sports_gymnastics</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Personal Presencial</h3>
-                <p className="text-slate-500 mb-8">Lado a lado em academia ou condomínio (vagas limitadas). Treino 100% otimizado e focado.</p>
-                <ul className="space-y-3 mb-8 text-sm flex-1">
-                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Carga extrema com segurança</li>
-                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Materiais e ajustes dinâmicos</li>
+                <h3 className="text-2xl font-bold mb-4">Nutrição Esportiva</h3>
+                <p className="text-slate-500 mb-8">Focado em atletas e praticantes de atividade física intensa.</p>
+                <ul className="space-y-3 mb-8 text-sm">
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Periodização Nutricional</li>
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Foco em Performance</li>
+                  <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm">check</span> Suplementação Avançada</li>
                 </ul>
                 <button className="w-full py-3 bg-slate-100 dark:bg-slate-700 hover:bg-primary hover:text-white rounded-xl font-bold transition-all mt-auto">Quero saber mais</button>
               </div>
@@ -269,12 +319,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 8: Final CTA & Form */}
-        <section className="py-20 bg-primary/5" id="contato">
+        {/* Section 8 & 9: Final CTA & Lead Form */}
+        <section className="py-20 bg-primary/5">
           <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col gap-8">
               <h2 className="text-5xl font-black leading-tight text-slate-900 dark:text-slate-100">Pronto para dar o primeiro passo?</h2>
-              <p className="text-xl text-slate-600 dark:text-slate-400">Preencha os dados e entraremos em contato para agendar sua avaliação e alinhar os objetivos.</p>
+              <p className="text-xl text-slate-600 dark:text-slate-400">Preencha os dados e entraremos em contato para agendar sua avaliação inicial e transformar sua vida.</p>
               <div className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 w-fit">
                 <div className="size-12 bg-green-500 rounded-full flex items-center justify-center text-white">
                   <span className="material-symbols-outlined">call</span>
@@ -306,12 +356,12 @@ export default function Home() {
                   <select className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary">
                     <option>Emagrecimento</option>
                     <option>Hipertrofia</option>
-                    <option>Condicionamento Físico / Performance</option>
-                    <option>Qualidade de Vida / Dores</option>
+                    <option>Saúde e Bem-estar</option>
+                    <option>Alergias Alimentares</option>
                   </select>
                 </div>
                 <button className="w-full py-4 bg-primary text-white text-lg font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all" type="submit">
-                  Quero começar a investir em mim
+                  Quero melhorar minha alimentação
                 </button>
               </form>
             </div>
@@ -323,21 +373,39 @@ export default function Home() {
           <div className="max-w-3xl mx-auto px-4">
             <h2 className="text-4xl font-black text-center mb-12">Perguntas Frequentes</h2>
             <div className="space-y-4">
-              {[
-                { q: "Preciso morar na academia para ter resultados?", a: "Absolutamente não! Com 3 ou 4 treinos curtos e intensos na semana, o método já gera uma mudança drástica na sua fisiologia." },
-                { q: "A consultoria online tem o mesmo efeito?", a: "Sim, os treinos detalhados via aplicativo dão total autonomia para quem já sabe a execução básica. Além disso, você tem vídeos exclusivos para corrigir dúvidas quando tiver!" },
-                { q: "Quanto tempo leva para ver resultados musculares?", a: "Em 2 a 4 semanas já perceberá maior turgor muscular e mudanças na força/disposição. Cerca de 8 a 12 semanas são suficientes para o espelho mostrar as reais diferenças fisiológicas de hipertrofia." }
-              ].map((faq, i) => (
-                <div key={i} className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
-                  <details className="group">
-                    <summary className="flex justify-between items-center p-6 cursor-pointer list-none bg-white dark:bg-slate-800">
-                      <span className="font-bold">{faq.q}</span>
-                      <span className="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
-                    </summary>
-                    <div className="p-6 pt-0 bg-white dark:bg-slate-800 text-slate-500">{faq.a}</div>
-                  </details>
-                </div>
-              ))}
+              <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
+                <details className="group">
+                  <summary className="flex justify-between items-center p-6 cursor-pointer list-none bg-white dark:bg-slate-800">
+                    <span className="font-bold">Vou precisar cortar pão e doces?</span>
+                    <span className="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                  </summary>
+                  <div className="p-6 pt-0 bg-white dark:bg-slate-800 text-slate-500">
+                    Não! Minha metodologia preza pelo equilíbrio. Ensinaremos você a encaixar os alimentos que gosta no seu plano, respeitando as quantidades e momentos ideais.
+                  </div>
+                </details>
+              </div>
+              <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
+                <details className="group">
+                  <summary className="flex justify-between items-center p-6 cursor-pointer list-none bg-white dark:bg-slate-800">
+                    <span className="font-bold">O atendimento online funciona mesmo?</span>
+                    <span className="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                  </summary>
+                  <div className="p-6 pt-0 bg-white dark:bg-slate-800 text-slate-500">
+                    Sim! A consulta online é tão completa quanto a presencial. Utilizamos fotos, medidas caseiras e exames laboratoriais para acompanhar sua evolução de forma precisa.
+                  </div>
+                </details>
+              </div>
+              <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden">
+                <details className="group">
+                  <summary className="flex justify-between items-center p-6 cursor-pointer list-none bg-white dark:bg-slate-800">
+                    <span className="font-bold">Quanto tempo leva para ver resultados?</span>
+                    <span className="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+                  </summary>
+                  <div className="p-6 pt-0 bg-white dark:bg-slate-800 text-slate-500">
+                    Nas primeiras duas semanas você já notará melhoras na disposição e digestão. Mudanças estéticas significativas costumam ser visíveis após 30 a 45 dias de adesão ao plano.
+                  </div>
+                </details>
+              </div>
             </div>
           </div>
         </section>
@@ -348,10 +416,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-6 text-white">
-              <span className="material-symbols-outlined text-primary text-3xl">fitness_center</span>
-              <span className="text-xl font-bold tracking-tight">ProTrainer</span>
+              <span className="material-symbols-outlined text-primary text-3xl">nutrition</span>
+              <span className="text-xl font-bold tracking-tight">NutriSaúde</span>
             </div>
-            <p className="max-w-sm mb-6">Sua saúde e seu corpo são sua morada eterna. Invista em quem te ensina o caminho com constância, técnica e dedicação.</p>
+            <p className="max-w-sm mb-6">Sua saúde é o seu maior patrimônio. Invista no que te faz bem e colha os frutos de uma vida com mais energia e qualidade.</p>
             <div className="flex gap-4">
               <a className="size-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
                 <span className="material-symbols-outlined">social_leaderboard</span>
@@ -367,9 +435,10 @@ export default function Home() {
           <div>
             <h4 className="text-white font-bold mb-6">Links Rápidos</h4>
             <ul className="space-y-4 text-sm">
-              <li><a className="hover:text-primary transition-colors" href="#sobre">Biografia</a></li>
-              <li><a className="hover:text-primary transition-colors" href="#servicos">Planos e Valores</a></li>
-              <li><a className="hover:text-primary transition-colors" href="#depoimentos">Alunos de Sucesso</a></li>
+              <li><a className="hover:text-primary transition-colors" href="#sobre">Sobre Mim</a></li>
+              <li><a className="hover:text-primary transition-colors" href="#servicos">Serviços</a></li>
+              <li><a className="hover:text-primary transition-colors" href="#depoimentos">Resultados</a></li>
+              <li><a className="hover:text-primary transition-colors" href="#">Blog</a></li>
             </ul>
           </div>
           <div>
@@ -377,17 +446,17 @@ export default function Home() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">location_on</span> São Paulo, SP</li>
               <li className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">call</span> (11) 99999-9999</li>
-              <li className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">email</span> contato@protrainer.com.br</li>
+              <li className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">email</span> contato@nutrisaude.com.br</li>
             </ul>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 text-xs text-center">
-          © 2024 ProTrainer. Todos os direitos reservados. CREF 12345-G.
+          © 2024 NutriSaúde. Todos os direitos reservados. CRN-3 12345.
         </div>
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <a className="fixed bottom-6 right-6 z-50 size-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform" href="#contato">
+      <a className="fixed bottom-6 right-6 z-50 size-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform" href="#">
         <svg className="size-8 fill-current" viewBox="0 0 24 24">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.43 5.63 1.43h.008c6.547 0 11.88-5.335 11.883-11.892a11.826 11.826 0 00-3.488-8.412Z">
           </path>

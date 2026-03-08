@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: var(--font-inter);
-  --color-primary: #FF6600; /* Adaptado para Personal Trainer, usando a base do template */
+  --color-primary: #3f9263;
   --color-background-light: #f6f7f7;
   --color-background-dark: #151d18;
 }

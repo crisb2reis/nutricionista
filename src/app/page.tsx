@@ -1,4 +1,48 @@
+"use client";
+
+import { useState } from "react";
+import { Loader2, CheckCircle } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
+
 export default function Home() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    nome: "",
+    whatsapp: "",
+    email: "",
+    objetivo: "Emagrecimento"
+  });
+
+  const TENANT_ID = "660e8400-e29b-41d4-a716-446655440003";
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.from('leads').insert({
+        tenant_id: TENANT_ID,
+        name: formData.nome,
+        phone: formData.whatsapp,
+        email: formData.email,
+        status: 'NOVO',
+        extra_data: {
+          objetivo: formData.objetivo
+        }
+      });
+
+      if (error) throw error;
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Erro ao salvar lead:', error);
+      alert('Erro ao enviar. Tente novamente.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
@@ -336,34 +380,86 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-700">
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-bold mb-2">Nome Completo</label>
-                  <input className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary" placeholder="Seu nome" type="text" />
+              {isSubmitted ? (
+                <div className="text-center py-10">
+                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-10 h-10 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Solicitação Enviada!</h3>
+                  <p className="text-slate-500 mb-8">Entraremos em contato em breve para agendar sua consulta.</p>
+                  <button
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-primary font-bold hover:underline"
+                  >
+                    Enviar outra mensagem
+                  </button>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4">
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-bold mb-2">WhatsApp</label>
-                    <input className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary" placeholder="(00) 00000-0000" type="tel" />
+                    <label className="block text-sm font-bold mb-2">Nome Completo</label>
+                    <input
+                      required
+                      value={formData.nome}
+                      onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary"
+                      placeholder="Seu nome"
+                      type="text"
+                    />
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-bold mb-2">WhatsApp</label>
+                      <input
+                        required
+                        value={formData.whatsapp}
+                        onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                        className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary"
+                        placeholder="(00) 00000-0000"
+                        type="tel"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold mb-2">Email</label>
+                      <input
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary"
+                        placeholder="seu@email.com"
+                        type="email"
+                      />
+                    </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-bold mb-2">Email</label>
-                    <input className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary" placeholder="seu@email.com" type="email" />
+                    <label className="block text-sm font-bold mb-2">Qual seu principal objetivo?</label>
+                    <select
+                      value={formData.objetivo}
+                      onChange={(e) => setFormData({ ...formData, objetivo: e.target.value })}
+                      className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary"
+                    >
+                      <option>Emagrecimento</option>
+                      <option>Hipertrofia</option>
+                      <option>Saúde e Bem-estar</option>
+                      <option>Alergias Alimentares</option>
+                    </select>
                   </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Qual seu principal objetivo?</label>
-                  <select className="w-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary">
-                    <option>Emagrecimento</option>
-                    <option>Hipertrofia</option>
-                    <option>Saúde e Bem-estar</option>
-                    <option>Alergias Alimentares</option>
-                  </select>
-                </div>
-                <button className="w-full py-4 bg-primary text-white text-lg font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all" type="submit">
-                  Quero melhorar minha alimentação
-                </button>
-              </form>
+                  <button
+                    disabled={isLoading}
+                    className="w-full py-4 bg-primary text-white text-lg font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
+                    type="submit"
+                  >
+                    {isLoading ? (
+                      <>
+                        Enviando...
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                      </>
+                    ) : (
+                      "Quero melhorar minha alimentação"
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </section>
